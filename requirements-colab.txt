@@ -1,0 +1,9 @@
+unsloth
+torch
+trl<0.9.0
+peft
+accelerate
+bitsandbytes
+datasets
+transformers
+colab_ssh

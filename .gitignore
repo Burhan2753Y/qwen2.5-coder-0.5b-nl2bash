@@ -1,0 +1,19 @@
+# Model weights & large binary files (weights published on Hugging Face Hub)
+models/*/*.gguf
+models/*/*.safetensors
+models/*/*.bin
+models/*/*.pt
+models/
+
+# Outputs, caches & logs
+outputs/
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.cache/
+wandb/
+*.log
+
+# Local temporary files
+Modelfile.local
