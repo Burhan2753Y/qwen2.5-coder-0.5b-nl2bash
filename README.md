@@ -114,16 +114,14 @@ Upload [`notebooks/qwen2_5_bash_finetune_colab.ipynb`](notebooks/qwen2_5_bash_fi
 
 ---
 
-## 📤 Publishing
+## 📤 Publishing & Model Links
 
-### 1. Push to Personal GitHub
-```bash
-./scripts/push_to_github.sh qwen2.5-coder-0.5b-nl2bash
-```
+- **Hugging Face Model**: [burhan2753y/qwen2.5-coder-0.5b-nl2bash-gguf](https://huggingface.co/burhan2753y/qwen2.5-coder-0.5b-nl2bash-gguf)
+- **GitHub Repository**: [Burhan2753Y/qwen2.5-coder-0.5b-nl2bash](https://github.com/Burhan2753Y/qwen2.5-coder-0.5b-nl2bash)
 
-### 2. Publish Weights to Hugging Face Hub
+### Publish Weights to Hugging Face Hub
 ```bash
 python3 scripts/upload_to_huggingface.py \
-    --repo_id "YOUR_HF_USERNAME/qwen2.5-coder-0.5b-nl2bash-gguf" \
+    --repo_id "burhan2753y/qwen2.5-coder-0.5b-nl2bash-gguf" \
     --token "your_hf_write_token"
 ```
