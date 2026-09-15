@@ -29,10 +29,25 @@ pipeline_tag: text-generation
 
 A fine-tuned version of **`Qwen/Qwen2.5-Coder-0.5B-Instruct`** specialized for converting natural language instructions directly into executable Linux/Ubuntu Bash commands with **zero conversational filler**.
 
-## 📊 Benchmark Highlights
-- **VRAM / RAM Usage**: ~500 MB (runs smoothly on CPU, Raspberry Pi, or any local GPU)
-- **Latency**: < 2.0 seconds on CPU (91% faster than base model)
-- **Output Format**: Single-line raw executable bash command
+## 📊 Dual-Track Benchmark Results
+
+### 🎓 Track 1: Academic NL2Bash Benchmark (EMNLP 2018 / Microsoft CodeXGLUE)
+| Metric | Base Model (`qwen2.5-coder:0.5b`) | Fine-Tuned Model (`bash-coder-assistant`) | Improvement |
+| :--- | :--- | :--- | :--- |
+| **Exact Match (EM %)** | `0.0%` | **`44.0%`** | **+44.0%** |
+| **Token F1 Score** | `12.93` | **`81.60`** | **+68.7 pts** |
+| **BLEU-4 Score** | `4.60` | **`65.01`** | **+60.4 pts** |
+| **Bash Syntax Validity** | `88.0%` | **`100.0%`** | **+12.0%** |
+| **Zero-Chatter Clean Format** | `4.0%` | **`100.0%`** | **+96.0%** |
+| **Mean Latency (CPU)** | `19.03s` | **`1.58s`** | **⚡ 91.7% Faster** |
+
+### 🛠️ Track 2: Real-World DevOps, Cloud & SysAdmin Benchmark
+| Metric | Base Model (`qwen2.5-coder:0.5b`) | Fine-Tuned Model (`bash-coder-assistant`) | Improvement |
+| :--- | :--- | :--- | :--- |
+| **Exact Match (EM %)** | `0.0%` | **`15.0%`** | **+15.0%** |
+| **Token F1 Score** | `6.76` | **`62.42`** | **+55.7 pts** |
+| **Bash Syntax Validity** | `90.0%` | **`100.0%`** | **+10.0%** |
+| **Mean Latency (CPU)** | `20.98s` | **`1.78s`** | **⚡ 91.5% Faster** |
 
 ## 🦙 Quickstart with Ollama
 

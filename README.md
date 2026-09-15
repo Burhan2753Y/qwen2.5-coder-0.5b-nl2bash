@@ -80,16 +80,36 @@ source ~/.bashrc
 
 ---
 
-## 📊 Empirical Benchmark Results
+## 📊 Dual-Track Benchmark Results
 
-Side-by-side comparison between **`qwen2.5-coder:0.5b` (Base)** and **`bash-coder-assistant` (Fine-Tuned)**:
+We evaluated the base model (`qwen2.5-coder:0.5b`) against our fine-tuned model (`bash-coder-assistant`) across both **Academic Standards** and **Real-World DevOps/SysAdmin Workloads**:
+
+### 🎓 Track 1: Academic NL2Bash Benchmark (EMNLP 2018 / Microsoft CodeXGLUE Standard)
+Evaluates exact match, token F1, BLEU-4, and abstract syntax tree (AST) parsing on standard NL2Bash evaluation splits:
 
 | Metric | Base Model (`qwen2.5-coder:0.5b`) | Fine-Tuned Model (`bash-coder-assistant`) | Improvement |
 | :--- | :--- | :--- | :--- |
-| **Average Latency** | **`22.18s`** | **`1.93s`** | **⚡ 91.3% Faster** |
-| **Average Output Length** | **`1,684 chars`** | **`59.5 chars`** | **🎯 96.5% More Concise** |
-| **Output Style** | Conversational essays, markdown blocks | Single-line executable Bash | **100% Adherence** |
-| **Training Loss** | `4.1045` (Initial) | `0.6726` (Converged) | **-83.6% Loss Reduction** |
+| **Exact Match (EM %)** | `0.0%` | **`44.0%`** | **+44.0%** |
+| **Token F1 Score** | `12.93` | **`81.60`** | **+68.7 pts** |
+| **BLEU-4 Score** | `4.60` | **`65.01`** | **+60.4 pts** |
+| **Bash Syntax Validity** | `88.0%` | **`100.0%`** | **+12.0%** (0 syntax errors) |
+| **Zero-Chatter Clean Format** | `4.0%` | **`100.0%`** | **+96.0%** |
+| **Mean Inference Latency** | `19.03s` | **`1.58s`** | **⚡ 91.7% Faster** |
+
+### 🛠️ Track 2: Real-World DevOps, Cloud & SysAdmin Benchmark
+Evaluates complex real-world administration tasks across Docker, Git, Networking, Sockets, Systemd, and Process management:
+
+| Metric | Base Model (`qwen2.5-coder:0.5b`) | Fine-Tuned Model (`bash-coder-assistant`) | Improvement |
+| :--- | :--- | :--- | :--- |
+| **Exact Match (EM %)** | `0.0%` | **`15.0%`** | **+15.0%** |
+| **Token F1 Score** | `6.76` | **`62.42`** | **+55.7 pts** |
+| **Bash Syntax Validity** | `90.0%` | **`100.0%`** | **+10.0%** (100% executable) |
+| **Mean Inference Latency** | `20.98s` | **`1.78s`** | **⚡ 91.5% Faster** |
+
+> **Reproduce Benchmark Locally**:
+> ```bash
+> python3 scripts/run_academic_benchmark.py
+> ```
 
 ---
 
